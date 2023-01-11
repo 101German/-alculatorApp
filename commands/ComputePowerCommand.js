@@ -7,7 +7,9 @@ class ComputePowerCommand {
 
     execute() {
         console.log('op: ' + this.firstOperand + 'po: ' + this.power)
-        if(this.firstOperand )
+        if((this.power < 1 && this.power > 0) && this.firstOperand < 0){
+            throw Error('Root of negative number');
+        }
         this.result = computePower(this.firstOperand, this.power)
         return this.result;
     }

@@ -117,13 +117,23 @@ document.querySelector('.buttons').onclick = (event) => {
             invoker.setCommand(command);
             invoker.run();
         }
+        else if (key === '+/-') {
+            if (rightOperand != '') {
+                rightOperand *= -1;
+                calcScreen.textContent = rightOperand;
+            }
+            else {
+                leftOperand *= -1;
+                calcScreen.textContent = leftOperand;
+            }
+        }
         else if (sign != '' && rightOperand != '') {
             calculate();
             sign = key;
         }
-        else if (key === '+/-' || key === '%' || key === 'x^2' || key === 'x^3'
-            || (leftOperand != '' && rightOperand != '' && key === 'x^y') || key === '10^x' || key === '1/x' || key === '2√x' || key === '3√x' || key === 'y√x'
-            || key === 'x!') {
+        else if (key === '%' || key === 'x^2' || key === 'x^3'
+            || (leftOperand != '' && rightOperand != '' && key === 'x^y') || key === '10^x' || key === '1/x' || key === '2√x' || key === '3√x'
+            || (leftOperand != '' && rightOperand != '' && key === 'y√x') || key === 'x!') {
             sign = key;
             console.log(sign);
             calculate()
